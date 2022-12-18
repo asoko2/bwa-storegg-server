@@ -30,7 +30,7 @@ module.exports = {
                 .populate('user', '_id name phoneNumber')
                 .populate('payments')
             
-            const payment = await Payment.find();
+            const payment = await Payment.find().populate('banks')
 
             if (!voucher) {
                 return res.status(404).json({ message: 'Data Not Found' })
